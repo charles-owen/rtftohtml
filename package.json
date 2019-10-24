@@ -17,6 +17,10 @@
     "RTF",
     "HTML"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charles-owen/rtftohtml.git"
+  },
   "author": "Charles B. Owen",
   "license": "MIT",
   "devDependencies": {

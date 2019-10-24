@@ -88,6 +88,8 @@ export const RtfToHtml = function(options) {
     }
 
     function controlWord() {
+        let cw = '';
+
         if(index < rtf.length) {
             ch = rtf[index];
 
@@ -106,8 +108,8 @@ export const RtfToHtml = function(options) {
             }
         }
 
-        let cw = '';
         let param = '';
+        cw = '';
 
         // Accumulate the control word
         let ch;

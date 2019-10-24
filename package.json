@@ -1,0 +1,45 @@
+{
+  "name": "@charles-owen/rtftohtml",
+  "version": "1.0.0",
+  "description": "RTF to HTML converter",
+  "main": "dist/rtftohtml.min.js",
+  "module": "index.js",
+  "private": false,
+  "scripts": {
+    "build:dev": "npx webpack --config webpack.dev.js",
+    "build:prod": "npx webpack --config webpack.prod.js",
+    "build:all": "npm run build:dev && npm run build:prod",
+    "test": "karma start karma.conf.js",
+    "serve": "webpack-dev-server  --config webpack.dev.js --open",
+    "build:docs": "documentation build src/Cirsim/**/*.js --sort-order source -f html -o doc/js"
+  },
+  "keywords": [
+    "RTF",
+    "HTML"
+  ],
+  "author": "Charles B. Owen",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/runtime": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jasmine-core": "^3.3.0",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack-with-fast-source-maps": "^1.10.2",
+    "lodash": "^4.17.15",
+    "terser-webpack-plugin": "^2.2.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  }
+}

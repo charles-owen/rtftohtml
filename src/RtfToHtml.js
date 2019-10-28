@@ -49,11 +49,15 @@ export const RtfToHtml = function(options) {
 
     function parse() {
         while(index < rtf.length) {
-            const ch = rtf[index];
+            let ch = rtf[index];
             index++;
 
-            if(ch < ' ') {
-                // Ignore control characters
+            if(ch === '\t') {
+                // Handle tab characters
+                ch = '&nbsp;&nbsp;&nbsp;';
+            }
+            else if(ch < ' ') {
+                // Ignore other control characters
                 continue;
             }
 
@@ -89,6 +93,7 @@ export const RtfToHtml = function(options) {
 
     function controlWord() {
         let cw = '';
+        let ch;
 
         if(index < rtf.length) {
             ch = rtf[index];
@@ -112,7 +117,6 @@ export const RtfToHtml = function(options) {
         cw = '';
 
         // Accumulate the control word
-        let ch;
         for( ; index < rtf.length;  index++) {
             ch = rtf[index];
 

@@ -52,6 +52,8 @@ export const RtfToHtml = function(options) {
             let ch = rtf[index];
             index++;
 
+            let chNext = index < rtf.length ? rtf[index] : "\n";
+
             if(ch === '\t') {
                 // Handle tab characters
                 ch = '&nbsp;&nbsp;&nbsp;';
@@ -71,7 +73,12 @@ export const RtfToHtml = function(options) {
                     break;
 
                 case '\\':
-                    controlWord();
+                    if(chNext === '\\') {
+                        character('\\');
+                        index++;
+                    } else {
+                        controlWord();
+                    }
                     break;
 
                 default:
@@ -128,7 +135,7 @@ export const RtfToHtml = function(options) {
         }
 
         // Test delimiter
-        if(ch === ' ') {
+        if(ch === ' ' || ch === "\n") {
             // Control word is done
             index++;
             doControlWord(cw, param);
@@ -141,14 +148,14 @@ export const RtfToHtml = function(options) {
             return;
         }
 
-        if(ch >= '0' && ch <= '9') {
+        if((ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
             // Numbers
             for( ; index < rtf.length;  index++) {
                 ch = rtf[index];
 
-                if(ch >= '0' && ch <= '9') {
+                if((ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
                     param += ch;
-                } else if(ch === ' ') {
+                } else if(ch === ' ' || ch === "\n") {
                     index++;
                     doControlWord(cw, param);
                     return;
@@ -198,6 +205,10 @@ export const RtfToHtml = function(options) {
 
             case 'cf':
                 color(+param);
+                break;
+
+            case 'cell':
+                cell();
                 break;
 
             default:
@@ -287,6 +298,10 @@ export const RtfToHtml = function(options) {
                 return;
             }
         }
+    }
+
+    let cell = () => {
+        paragraph += ' ';
     }
 
     /**

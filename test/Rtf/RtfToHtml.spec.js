@@ -2,7 +2,7 @@ import {RtfToHtml} from '../../src/RtfToHtml';
 
 describe('RtfToHtml', function() {
 
-    it('Construct', function() {
+    it('WithColor', function() {
         var h = new RtfToHtml();
         expect(0).toBe(0);
 
@@ -21,5 +21,38 @@ describe('RtfToHtml', function() {
         html = h.convert(rtf2);
         console.log(html);
     });
+
+
+    it('VisualStudioError', function() {
+        const h = new RtfToHtml();
+        expect(0).toBe(0);
+
+        const rtf2 = '{\\rtf\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang1033{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Segoe UI;}}{\\colortbl;\\red0\\green0\\blue0;\\red127\\green127\\blue127;}\n' +
+            '\\trowd\\trgaph108\\trleft5\\trautofit1\\trrh200\\trbrdrl\\brdrs\\brdrw10 \\trbrdrt\\brdrs\\brdrw10 \\trbrdrr\\brdrs\\brdrw10 \\trbrdrb\\brdrs\\brdrw10\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx297\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx869\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx7497\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx9214\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx10931\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx11331\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx11903\n' +
+            '\\pard\\intbl\\widctlpar\\f0\\fs18\n' +
+            'Severity\\cell Code\\cell Description\\cell Project\\cell File\\cell Line\\cell Suppression State\\cell \\row\n' +
+            '\\trowd\\trgaph108\\trleft5\\trautofit1\\trrh200\\trbrdrl\\brdrs\\brdrw10 \\trbrdrt\\brdrs\\brdrw10 \\trbrdrr\\brdrs\\brdrw10 \\trbrdrb\\brdrs\\brdrw10\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx297\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx869\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx7497\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx9214\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx10931\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx11331\n' +
+            '\\clvertalc\\clbrdrl\\brdrw10\\brdrs\\brdrcf2\\clbrdrt\\brdrw10\\brdrs\\brdrcf2\\clbrdrr\\brdrw10\\brdrs\\brdrcf2\\clbrdrb\\brdrw10\\brdrs\\brdrcf2\\clftsWidth1\\cellx11903\n' +
+            '\\pard\\intbl\\widctlpar\\f0\\fs18\n' +
+            'Error\\cell LNK2001\\cell unresolved external symbol "public: virtual __thiscall CTile::~CTile(void)" (??1CTile@@UAE@XZ)\\cell Testing\\cell C:\\\\Users\\\\charl\\\\Documents\\\\Classes\\\\CSE335\\\\Visual Studio 2019\\\\Step4\\\\City-solution-ss20\\\\City\\\\Testing\\\\CTileTest.obj\\cell 1\\cell \\cell \\row\n' +
+            '}';
+
+        let html = h.convert(rtf2);
+        console.log(html);
+    });
+
 
 });

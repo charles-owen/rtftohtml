@@ -1,6 +1,6 @@
 {
   "name": "@charles-owen/rtftohtml",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "RTF to HTML converter",
   "main": "dist/rtftohtml.min.js",
   "module": "index.js",

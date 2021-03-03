@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-//const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 module.exports = {
     entry: {
         app: './index.js'
@@ -18,7 +18,6 @@ module.exports = {
             template: 'src/html/index.html',
             inject: 'head'
         }),
-        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ], module: {
         rules: [

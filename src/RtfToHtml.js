@@ -294,7 +294,7 @@ export const RtfToHtml = function(options) {
 
     let fontTable = () => {
         for( ; index < rtf.length; index++) {
-            if(rtf[index] === '}') {
+            if(rtf[index] === '}' && rtf[index - 1] === '}') {
                 return;
             }
         }

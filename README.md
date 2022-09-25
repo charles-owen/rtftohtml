@@ -14,3 +14,14 @@ Copyright 2016-2019 Michigan State University
 
 Written and maintained by Charles B. Owen
 
+## Install
+```shell
+yarn add @charles-owen/rtftohtml
+```
+## Usage
+```js
+import {RtfToHtml} from '@charles-owen/rtftohtml'
+
+const converter = new RtfToHtml()
+const html = convert(rtf)
+```

@@ -23,5 +23,5 @@ yarn add @charles-owen/rtftohtml
 import {RtfToHtml} from '@charles-owen/rtftohtml'
 
 const converter = new RtfToHtml()
-const html = convert(rtf)
+const html = converter.convert(rtf)
 ```
